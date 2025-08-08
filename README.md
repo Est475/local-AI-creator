@@ -1,197 +1,196 @@
 # 🧠 AI Creator - Teachable Image Classifier (v6)
 
-**AI Creator** est une application de bureau en Python dotée d'une interface graphique (Tkinter) qui permet à n'importe qui d'entraîner un modèle d’intelligence artificielle pour la classification d’images **de manière visuelle et intuitive**, sans écrire une seule ligne de code.
+**AI Creator** is a Python desktop application with a graphical interface (Tkinter) that allows anyone to train an image classification **AI model visually and intuitively**, without writing a single line of code.
 
-Inspirée de [Teachable Machine](https://teachablemachine.withgoogle.com/) de Google, cette version locale garantit confidentialité, personnalisation et flexibilité, tout en restant simple à utiliser.
-
----
-## 🎯 Objectif du projet
-
-**AI Creator** vise à démocratiser l’intelligence artificielle en permettant à tout utilisateur, même sans compétence en programmation, d’entraîner un modèle de classification d’images à partir de ses propres données, en quelques clics.
-
-Ce projet permet :
-
-- aux **débutants** de découvrir le machine learning de manière visuelle,
-- aux **enseignants** de proposer des activités interactives en classe,
-- aux **développeurs** de prototyper rapidement un modèle de vision par ordinateur **localement**.
+Inspired by Google’s [Teachable Machine](https://teachablemachine.withgoogle.com/), this local version ensures privacy, customization, and flexibility while remaining simple to use.
 
 ---
 
-## 🖥️ Interface utilisateur
+## 🎯 Project Goal
 
-L'application dispose d’une interface intuitive conçue avec **Tkinter**, divisée en deux sections :
+**AI Creator** aims to democratize artificial intelligence by enabling any user, even without programming skills, to train an image classification model using their own data in just a few clicks.
 
-### 🔹 Partie gauche – Gestion des classes
+This project allows:
 
-- Affichage des classes détectées
-- Bouton « Ajouter une classe » (import manuel d’images)
-
-### 🔹 Partie droite – Contrôle du modèle
-
-- Sélection du dossier d’images
-- Réglage des hyperparamètres : taille, batch, époques, patience
-- Barres de progression + journal d’entraînement en direct
-- Bouton **« Tester une image »**
-- Bouton **« Exporter en TensorFlow Lite »**
+- **Beginners** to discover machine learning visually,
+- **Teachers** to offer interactive classroom activities,
+- **Developers** to quickly prototype a **local** computer vision model.
 
 ---
 
-## 🧠 Détails techniques
+## 🖥️ User Interface
 
-Le modèle est un **CNN simple** implémenté avec **Keras** et **TensorFlow** :
+The application features an intuitive interface built with **Tkinter**, divided into two sections:
 
-**Architecture :**
+### 🔹 Left Panel – Class Management
+
+- Display of detected classes
+- “Add Class” button (manual image import)
+
+### 🔹 Right Panel – Model Controls
+
+- Image folder selection
+- Hyperparameter settings: size, batch, epochs, patience
+- Progress bars + live training log
+- **“Test an Image”** button
+- **“Export to TensorFlow Lite”** button
+
+---
+
+## 🧠 Technical Details
+
+The model is a **simple CNN** implemented with **Keras** and **TensorFlow**:
+
+**Architecture:**
 ```
 Input → Conv2D(32) → MaxPooling → Conv2D(64) → MaxPooling → Flatten → Dense(128) → Dense(n_classes, softmax)
 ```
 
-- **Fonctions d’activation :** ReLU (couches cachées), Softmax (sortie)
-- **Perte :** `categorical_crossentropy`
-- **Optimiseur :** `Adam`
-- **Métrique :** `accuracy`
-- **EarlyStopping** sur la perte de validation
+- **Activation functions:** ReLU (hidden layers), Softmax (output)
+- **Loss:** `categorical_crossentropy`
+- **Optimizer:** `Adam`
+- **Metric:** `accuracy`
+- **EarlyStopping** on validation loss
 
 ---
 
-## ⚙️ Personnalisation
+## ⚙️ Customization
 
-L'utilisateur peut configurer :
+Users can configure:
 
-- La taille des images (largeur x hauteur)
-- La taille du batch
-- Le nombre d’époques
-- Le seuil de patience (EarlyStopping)
-
----
-
-## 🧪 Fonction de test
-
-Une fois le modèle entraîné, l’utilisateur peut :
-
-- Charger une image
-- Obtenir instantanément la prédiction
-- Voir le nom de la classe prédite
+- Image size (width x height)
+- Batch size
+- Number of epochs
+- Patience threshold (EarlyStopping)
 
 ---
 
-## 📤 Export en TensorFlow Lite
+## 🧪 Test Function
 
-Fonction d’export `.tflite` intégrée :
+Once the model is trained, users can:
 
-- Utilisation possible sur **smartphones** (Android / iOS)
-- Intégration dans des **microcontrôleurs** (Raspberry Pi, etc.)
-- **Exécution rapide** et **hors ligne**
-
----
-
-## 🖼️ Exemple d’usage pédagogique
-
-> Un enseignant demande aux élèves de prendre des photos de fruits :  
-> Chaque élève place ses photos dans un dossier par classe (pommes, bananes, oranges)  
-> AI Creator entraîne le modèle  
-> Les élèves testent leurs images avec des prédictions immédiates 🎯
+- Load an image
+- Instantly get a prediction
+- See the name of the predicted class
 
 ---
 
-## 💡 Pourquoi utiliser AI Creator ?
+## 📤 TensorFlow Lite Export
 
-| Public        | Bénéfices |
-|---------------|-----------|
-| **Débutants** | Découverte visuelle du machine learning |
-| **Étudiants** | Mini-projets IA locaux sans cloud |
-| **Développeurs** | Prototypage rapide d’un classifieur personnalisé |
-| **Écoles** | Introduction ludique et pédagogique à l’IA |
+Built-in `.tflite` export feature:
 
----
-
-## 🔒 Vie privée
-
-✅ Tout l’apprentissage est effectué **localement**, sans envoi de données sur Internet.  
-✅ Aucune image n’est stockée ou partagée hors de l’ordinateur de l’utilisateur.
+- Usable on **smartphones** (Android / iOS)
+- Integration with **microcontrollers** (Raspberry Pi, etc.)
+- **Fast** and **offline execution**
 
 ---
 
-## 🧱 Évolutivité – pistes d’amélioration
+## 🖼️ Educational Use Case Example
 
-- [x] Visualisation des courbes d'entraînement
-- [x] Ajout de métriques (précision, rappel, F1)
-- [x] Historique d’entraînement
-- [x] Sauvegarde/chargement de modèles
-- [x] Support de la webcam pour la prédiction en direct
-- [x] Génération de fichier `.exe` pour Windows
-
+> A teacher asks students to take photos of fruits:  
+> Each student places their photos in a folder per class (apples, bananas, oranges)  
+> AI Creator trains the model  
+> Students test their images with immediate predictions 🎯
 
 ---
 
+## 💡 Why Use AI Creator?
 
-## 📸 Fonctionnalités principales
-
-| Fonction | Description |
-|----------|-------------|
-| 📂 Chargement de données | Choisissez un dossier avec des sous-dossiers d'images pour chaque classe |
-| ➕ Ajout de classes | Créez de nouvelles classes directement dans l'interface et ajoutez des images |
-| ⚙️ Paramétrage simple | Modifiez les dimensions des images, le nombre d’époques, la taille des batchs, etc. |
-| 🧠 Entraînement de l’IA | Un modèle CNN est automatiquement compilé et entraîné sur vos données |
-| 🔍 Test d’une image | Testez une image pour voir à quelle classe elle est associée |
-| 💾 Sauvegarde du modèle | Le modèle est sauvegardé automatiquement à la fin de l'entraînement |
-| 📤 Export TensorFlow Lite | Exportez votre modèle en `.tflite` pour un usage embarqué ou mobile |
+| Audience        | Benefits |
+|-----------------|----------|
+| **Beginners**   | Visual discovery of machine learning |
+| **Students**    | Local AI mini-projects without the cloud |
+| **Developers**  | Rapid prototyping of a custom classifier |
+| **Schools**     | Fun and educational introduction to AI |
 
 ---
 
-## 🗂️ Organisation des données (dataset)
+## 🔒 Privacy
 
-L'application s'appuie sur une structure simple : un dossier principal contenant un sous-dossier par classe, chacun rempli d'images. Exemple :
+✅ All training is done **locally**, with no data sent over the Internet.  
+✅ No images are stored or shared outside the user’s computer.
+
+---
+
+## 🧱 Scalability – Improvement Ideas
+
+- [x] Training curve visualization
+- [x] Added metrics (precision, recall, F1)
+- [x] Training history
+- [x] Model save/load support
+- [x] Webcam support for live prediction
+- [x] `.exe` generation for Windows
+
+---
+
+## 📸 Key Features
+
+| Feature              | Description |
+|----------------------|-------------|
+| 📂 Data loading       | Choose a folder with subfolders of images for each class |
+| ➕ Add classes        | Create new classes directly in the UI and add images |
+| ⚙️ Simple setup       | Modify image size, epochs, batch size, etc. |
+| 🧠 AI training        | A CNN model is automatically compiled and trained on your data |
+| 🔍 Image testing      | Test an image to see which class it belongs to |
+| 💾 Model saving       | The model is automatically saved at the end of training |
+| 📤 TensorFlow Lite export | Export your model to `.tflite` for embedded or mobile use |
+
+---
+
+## 🗂️ Data Organization (Dataset)
+
+The application uses a simple folder structure: a main folder with one subfolder per class, each filled with images. Example:
 
 ```
-/mon_dataset/
-├── chats/
-│   ├── chat1.jpg
-│   ├── chat2.jpg
-├── chiens/
-│   ├── chien1.jpg
-│   ├── chien2.jpg
-├── oiseaux/
-│   ├── oiseau1.jpg
+/my_dataset/
+├── cats/
+│   ├── cat1.jpg
+│   ├── cat2.jpg
+├── dogs/
+│   ├── dog1.jpg
+│   ├── dog2.jpg
+├── birds/
+│   ├── bird1.jpg
 ```
 
-> 🔁 Vous pouvez ajouter de nouvelles classes à tout moment via le bouton **“Ajouter une classe”**.
+> 🔁 You can add new classes anytime using the **“Add Class”** button.
 
 ---
 
-## 🧰 Technologies utilisées
+## 🧰 Technologies Used
 
-- **Python 3.10+** *(compatible GPU)*
-- **TensorFlow** — entraînement du modèle IA
-- **Keras** — architecture du modèle CNN
-- **Tkinter** — interface graphique (GUI)
-- **Pillow (PIL)** — manipulation d’images
-- **NumPy** — traitement des tableaux d’images
+- **Python 3.10+** *(GPU compatible)*
+- **TensorFlow** — AI model training
+- **Keras** — CNN model architecture
+- **Tkinter** — Graphical user interface
+- **Pillow (PIL)** — Image processing
+- **NumPy** — Array/image processing
 
 ---
 
 ## ⚙️ Installation (Windows)
 
-### 1. Cloner le dépôt
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/votre-utilisateur/ai-creator.git
+git clone https://github.com/your-username/ai-creator.git
 cd ai-creator
 ```
 
-### 2. Créer et activer un environnement virtuel
+### 2. Create and activate a virtual environment
 
 ```bash
 python -m venv env
-env\Scripts\activate
+env\Scriptsctivate
 ```
 
-### 3. Installer les dépendances
+### 3. Install dependencies
 
 ```bash
 pip install tensorflow pillow numpy
 ```
 
-*ou avec requirements.txt :*
+*Or with requirements.txt:*
 
 ```bash
 pip install -r requirements.txt
@@ -199,35 +198,35 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Lancer l’application
+## ▶️ Launch the Application
 
 ```bash
 python Ai_creator_V6.py
 ```
 
-L'interface graphique s'ouvre automatiquement.
+The graphical interface will open automatically.
 
 ---
 
-## 🔍 Utilisation étape par étape
+## 🔍 Step-by-Step Usage
 
-1. **Choisir un dossier d'images**
-2. **Ajouter des classes (facultatif)**
-3. **Configurer les paramètres d'entraînement**
-4. **Lancer l'entraînement**
-5. **Tester une image**
-6. **Exporter en TFLite**
+1. **Choose an image folder**
+2. **Add classes (optional)**
+3. **Set training parameters**
+4. **Start training**
+5. **Test an image**
+6. **Export to TFLite**
 
 ---
 
-## 💻 Compatibilité GPU (Optionnel)
+## 💻 GPU Compatibility (Optional)
 
-TensorFlow utilisera **automatiquement le GPU** si :
-- Carte NVIDIA compatible CUDA
-- CUDA Toolkit 11.8 + cuDNN 8.6 installés
-- Drivers à jour
+TensorFlow will **automatically use the GPU** if:
+- NVIDIA card with CUDA support
+- CUDA Toolkit 11.8 + cuDNN 8.6 installed
+- Drivers up to date
 
-### Tester la présence du GPU :
+### Test for GPU presence:
 
 ```python
 import tensorflow as tf
@@ -236,24 +235,24 @@ print(tf.config.list_physical_devices('GPU'))
 
 ---
 
-## 📦 Export du modèle
+## 📦 Model Export
 
-- `model/model.h5` — modèle complet (Keras)
-- `model.tflite` — modèle optimisé pour mobile (optionnel)
-
----
-
-## 🐞 Dépannage courant
-
-| Problème | Solution |
-|----------|----------|
-| `ModuleNotFoundError` | Installer avec `pip install nom_du_module` |
-| L’environnement ne s’active pas | Utiliser `env\Scripts\activate.bat` |
-| Entraînement lent | Vérifier l'utilisation du GPU ou réduire la taille des images |
+- `model/model.h5` — full Keras model
+- `model.tflite` — mobile-optimized model (optional)
 
 ---
 
-## 📁 Fichier requirements.txt
+## 🐞 Common Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| `ModuleNotFoundError` | Install with `pip install module_name` |
+| Environment doesn't activate | Use `env\Scriptsctivate.bat` |
+| Slow training | Check GPU usage or reduce image size |
+
+---
+
+## 📁 requirements.txt File
 
 ```txt
 tensorflow>=2.15
@@ -263,27 +262,26 @@ pillow>=10.0
 
 ---
 
-## 👨‍💻 Contribuer
+## 👨‍💻 Contributing
 
-Les contributions sont les bienvenues !  
-Merci de soumettre une _issue_ ou une _pull request_ pour toute suggestion ou amélioration.
+Contributions are welcome!  
+Please submit an _issue_ or _pull request_ for any suggestion or improvement.
 
-1. Forkez le dépôt
-2. Créez une branche : `git checkout -b feature/ma-fonction`
-3. Commitez : `git commit -am "Ajoute ma fonction"`
-4. Poussez : `git push origin feature/ma-fonction`
-5. Ouvrez une **Pull Request**
-
----
-
-## 📄 Licence
-
-Projet sous licence apache 2.0.
+1. Fork the repository  
+2. Create a branch: `git checkout -b feature/my-feature`  
+3. Commit: `git commit -am "Add my feature"`  
+4. Push: `git push origin feature/my-feature`  
+5. Open a **Pull Request**
 
 ---
 
-## 🤖 Auteur
+## 📄 License
 
-**Créateur :** [Esteban Debordes]  
-Contact : [esteban.pro32214@gmail.com]
+Project licensed under Apache 2.0.
 
+---
+
+## 🤖 Author
+
+**Creator:** [Esteban Debordes]  
+Contact: [esteban.pro32214@gmail.com]
