@@ -1,57 +1,56 @@
-# 🔒 Politique de sécurité – AI Creator
+# 🔒 Security Policy – AI Creator
 
-Merci de contribuer à rendre **AI Creator** plus sûr pour tous les utilisateurs. Cette politique explique comment signaler des vulnérabilités de manière responsable et ce que nous attendons de la communauté.
-
----
-
-## 🧭 Portée
-
-Cette politique s'applique à l’ensemble du code, des scripts, des modèles et des dépendances livrés avec **AI Creator**, y compris :
-
-- L'application Python (`Ai_creator_V6.py`)
-- Les modèles entraînés localement
-- Les fichiers de configuration et scripts annexes
+Thank you for helping make **AI Creator** safer for all users. This policy explains how to report vulnerabilities responsibly and what we expect from the community.
 
 ---
 
-## 📬 Signalement des vulnérabilités
+## 🧭 Scope
 
-Si vous découvrez une faille de sécurité, veuillez **ne pas la divulguer publiquement**.
+This policy applies to all code, scripts, models, and dependencies delivered with **AI Creator**, including:
 
-👉 Contactez-nous directement par email :
-
-**📧 Email de contact** : [esteban.pro32214@gmail.com]
-
-Merci d’inclure :
-- Une description claire de la vulnérabilité
-- Les étapes pour la reproduire
-- Votre environnement (OS, version de Python, etc.)
-- Toute preuve ou capture utile
+- The Python application (`Ai_creator_V6.py`)
+- Locally trained models
+- Configuration files and auxiliary scripts
 
 ---
 
-## 🔐 Recommandations de sécurité pour les utilisateurs
+## 📬 Reporting Vulnerabilities
 
-- Installez Python et les dépendances uniquement depuis des sources officielles
-- Ne téléchargez pas de jeux de données suspects ou non vérifiés
-- N’exécutez pas l'application avec des privilèges administrateur sans nécessité
-- Utilisez un environnement virtuel Python dédié
+If you discover a security issue, please **do not disclose it publicly**.
 
----
+👉 Contact us directly via email:
 
-## ✅ Traitement des signalements
+**📧 Contact email**: [esteban.pro32214@gmail.com]
 
-Nous nous engageons à travailler à corriger la faille dans les meilleurs délais
-
-Si la faille est critique, une mise à jour ou un patch sera publié avec une note de sécurité.
-
----
-
-## 🛠️ Dépendances tierces
-
-**AI Creator** utilise des bibliothèques comme TensorFlow, NumPy et Pillow. Merci de consulter leurs politiques respectives pour toute faille liée en dehors de notre code source.
-
+Please include:
+- A clear description of the vulnerability
+- Steps to reproduce it
+- Your environment (OS, Python version, etc.)
+- Any useful proof or screenshots
 
 ---
 
-Merci de faire partie d’une communauté responsable 🌍
+## 🔐 Security Recommendations for Users
+
+- Install Python and dependencies only from official sources  
+- Do not download suspicious or unverified datasets  
+- Do not run the application with admin privileges unless necessary  
+- Use a dedicated Python virtual environment  
+
+---
+
+## ✅ Handling Reports
+
+We are committed to fixing the issue as soon as possible.
+
+If the issue is critical, an update or patch will be released along with a security notice.
+
+---
+
+## 🛠️ Third-Party Dependencies
+
+**AI Creator** uses libraries such as TensorFlow, NumPy, and Pillow. Please refer to their respective security policies for vulnerabilities outside our source code.
+
+---
+
+Thank you for being part of a responsible community 🌍
